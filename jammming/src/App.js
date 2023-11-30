@@ -3,7 +3,6 @@ import React, { useCallback, useState } from 'react';
 import Playlist from './Playlist/Playlist';
 import SearchBar from './SearchBar/SearchBar';
 import SearchResults from './SearchResults/SearchResults';
-import { mockData } from './Spotify/Spotify';
 
 function App() {
   const [searchResults, setSearchResults] = useState([]);
@@ -15,9 +14,9 @@ function App() {
   return (
     <div className="App">
       <h1>Ja<strong>mmm</strong>ing</h1>
-      <SearchBar onSearch={search}/>
+      <SearchBar onSearch={setSearchResults}/>
       <div className='main'>
-        <SearchResults />
+        <SearchResults searchResults={searchResults} />
         <Playlist />
       </div>
     </div>

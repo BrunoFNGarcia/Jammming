@@ -1,17 +1,14 @@
 import React from 'react';
-import { mockData } from '../Spotify/Spotify';
 import Track from '../Track/Track';
 
-function Tracklist() {
+function Tracklist(props) {
     return (
         <div>
-            {mockData.map(track => {
+            {props.tracks.map((track, id) => {
                 return (
                     <Track
-                        id={track.id}
-                        name={track.name}
-                        artist={track.artist}
-                        album={track.album}
+                        key={id}
+                        track={track}
                     />
                 )
             })}

@@ -1,4 +1,4 @@
-search-results {
+.SearchResults {
     display: flex;
     flex-direction: column;
 }

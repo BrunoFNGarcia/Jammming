@@ -29,7 +29,6 @@ function SearchBar(props) {
         <div className='SearchComponent'>
             <h2 className='SearchText'>Search</h2>
             <input className='SearchBar' onChange={handleTextChange} value={text} type='text' placeholder='What do you want to listen to?'></input>
-            {/* <button className='SearchButton'>Search</button> */}
         </div>
     )
 }

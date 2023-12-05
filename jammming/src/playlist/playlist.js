@@ -1,15 +1,19 @@
 import React from 'react';
 import './Playlist.css';
+import Tracklist from '../TrackList/Tracklist';
 
-function Playlist() {
+function Playlist(props) {
     return (
-        <div className='playlist-box'>
-            <div className='playlist'>
-                <h2>Playlist Name</h2>
-                <h3>Tava aqui pensando em nós</h3>
-                <p>L7nnon e Ajaxx | Me Espera</p>
+        <div className='Playlist'>
+            <div className='PlaylistTracks'>
+                <h2>Give your playlist a name</h2>
+                <Tracklist 
+                    tracks={props.playlistTracks} 
+                    onRemove={props.onRemove}
+                    isRemoval={true}
+                />
             </div>
-            <button>Save to Spotify</button>
+            <button className='PlaylistButton'>Save to Spotify</button>
         </div>
     )
 }

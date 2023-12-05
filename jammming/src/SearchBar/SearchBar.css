@@ -1,3 +1,8 @@
+.SearchComponent {
+   margin-top: 4rem;
+   margin-bottom: 8rem;
+}
+
 .SearchBar {
    width: 14rem;
    text-align: center;

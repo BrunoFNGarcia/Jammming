@@ -1,23 +1,32 @@
 import './App.css';
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import Playlist from './Playlist/Playlist';
 import SearchBar from './SearchBar/SearchBar';
 import SearchResults from './SearchResults/SearchResults';
 
 function App() {
   const [searchResults, setSearchResults] = useState([]);
+  const [playlistTracks, setPlaylistTracks] = useState([]);
 
-  const search = event => {
-    setSearchResults(event.target.value);
+  const addTrack = (track) => {
+    if (playlistTracks.some((addedTrack) => addedTrack.id === track.id)) {
+      return;
+    } else {
+      setPlaylistTracks((prevTracks) => [...prevTracks, track]);
+    };
+  };
+
+  const removeTrack = (track) => {
+    setPlaylistTracks((prevTracks) => prevTracks.filter((index) => index.id !== track.id))
   };
 
   return (
     <div className="App">
       <h1>Ja<strong>mmm</strong>ing</h1>
-      <SearchBar onSearch={setSearchResults}/>
+      <SearchBar setSearchResults={setSearchResults}/>
       <div className='main'>
-        <SearchResults searchResults={searchResults} />
-        <Playlist />
+        <SearchResults searchResults={searchResults} onAdd={addTrack} />
+        <Playlist playlistTracks={playlistTracks} onRemove={removeTrack} />
       </div>
     </div>
   );

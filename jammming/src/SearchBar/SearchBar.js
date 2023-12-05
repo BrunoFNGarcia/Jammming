@@ -8,7 +8,7 @@ function SearchBar(props) {
         fetch("https://jsonplaceholder.typicode.com/users")
         .then(response => response.json())
         .then(json => {
-            const results = json.filter(user => {
+            const searchResults = json.filter(user => {
                 return (
                     value &&
                     user &&
@@ -16,19 +16,20 @@ function SearchBar(props) {
                     user.name.toLowerCase().includes(value)
                 );
             });
-            setSearchResults(searchResults);
+            props.setSearchResults(searchResults);
         });
     };
 
-    const handleTextChange = value => {
-        setText(value);
-        fetchData(value);
+    const handleTextChange = e => {
+        setText(e.target.value);
+        fetchData(e.target.value);
     };
 
     return (
         <div className='SearchComponent'>
-            <input className='SearchBar' onChange={e => handleTextChange(e.target.value)} value={text} type='text' placeholder='What do you want to listen to?'></input>
-            <button className='SearchButton'>Search</button>
+            <h2 className='SearchText'>Search</h2>
+            <input className='SearchBar' onChange={handleTextChange} value={text} type='text' placeholder='What do you want to listen to?'></input>
+            {/* <button className='SearchButton'>Search</button> */}
         </div>
     )
 }

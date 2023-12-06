@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Playlist from './Playlist/Playlist';
 import SearchBar from './SearchBar/SearchBar';
 import SearchResults from './SearchResults/SearchResults';
+import Spotify from './Spotify/Spotify';
 
 function App() {
   const [searchResults, setSearchResults] = useState([]);
@@ -26,10 +27,12 @@ function App() {
   };
 
   const savePlaylist = () => {
-    alert(`You created the playlist ${playlistName}`)
-    setPlaylistTracks([]);
-    setPlaylistName('');
-}
+    const trackUris = playlistTracks.map((track) => track.uri);
+    Spotify.savePlaylist(playlistName, trackUris).then(() => {
+      setPlaylistTracks([]);
+      setPlaylistName('');
+    })
+  }
 
   return (
     <div className="App">

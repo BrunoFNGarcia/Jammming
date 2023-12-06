@@ -5,7 +5,7 @@ import Tracklist from '../TrackList/Tracklist';
 function Playlist(props) {
 
     const handleNameChange = e => {
-        props.onNameChange(e.target.value);
+        props.onChange(e.target.value);
     }
 
     return (
@@ -16,7 +16,7 @@ function Playlist(props) {
                     className='PlaylistInput' 
                     placeholder='Playlist Name' 
                     type='text' 
-                    onNameChange={handleNameChange}>
+                    onChange={handleNameChange}>
                 </input>
                 <Tracklist 
                     tracks={props.playlistTracks} 

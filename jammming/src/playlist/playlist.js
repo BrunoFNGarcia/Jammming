@@ -15,10 +15,13 @@ function Playlist(props) {
                 <input 
                     className='PlaylistInput' 
                     placeholder='Playlist Name' 
-                    type='text' 
-                    onChange={handleNameChange}>
+                    type='text'
+                    value={props.playlistName}
+                    onChange={handleNameChange}
+                >
                 </input>
-                <Tracklist 
+                <Tracklist
+                    className='Tracklist'
                     tracks={props.playlistTracks} 
                     onRemove={props.onRemove}
                     isRemoval={true}

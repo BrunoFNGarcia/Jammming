@@ -9,6 +9,16 @@ function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [playlistTracks, setPlaylistTracks] = useState([]);
   const [playlistName, setPlaylistName] = useState(['']);
+  const [text, setText] = useState('');
+
+  const handleTextChange = e => {
+    setText(e.target.value);
+    search(e.target.value);
+};
+
+  const search = (value) => {
+    Spotify.search(value).then(setSearchResults);
+}
 
   const addTrack = (track) => {
     if (playlistTracks.some((addedTrack) => addedTrack.id === track.id)) {
@@ -26,26 +36,35 @@ function App() {
     setPlaylistName(name)
   };
 
-  const savePlaylist = () => {
+  const savePlaylist = async () => {
     const trackUris = playlistTracks.map((track) => track.uri);
-    Spotify.savePlaylist(playlistName, trackUris).then(() => {
+    const variavel = await Spotify.savePlaylist(playlistName, trackUris)
+    if (variavel) {
       setPlaylistTracks([]);
+      setSearchResults([]);
       setPlaylistName('');
-    })
+      setText('');
+    }
   }
-
+  
   return (
     <div className="App">
-      <h1>Ja<strong>mmm</strong>ing</h1>
-      <SearchBar setSearchResults={setSearchResults}/>
+      <h1 className='AppTitle'>JA<strong>MMM</strong>ING</h1>
+      <SearchBar 
+        value={text} 
+        onChange={handleTextChange} 
+        setSearchResults={setSearchResults}
+      />
       <div className='main'>
         <SearchResults searchResults={searchResults} onAdd={addTrack} />
-        <Playlist 
+        <Playlist
+          className='Playlist'
           playlistTracks={playlistTracks} 
           onRemove={removeTrack} 
           playlistName={playlistName} 
           onChange={changePlaylistName} 
-          onSave={savePlaylist}/>
+          onSave={savePlaylist}
+        />
       </div>
     </div>
   );

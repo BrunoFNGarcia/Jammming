@@ -2,8 +2,6 @@ import React from 'react';
 
 const accessTokenEndpoint = 'https://accounts.spotify.com/authorize';
 const searchEndpoint = 'https://api.spotify.com/v1/search?type=track&q=';
-const userEndpoint = 'https://api.spotify.com/v1/users/';
-const searchType = '&type=track';
 const clientId = 'd7b1c76f90c04af8ad06604fd5ac932a';
 const redirectUri = 'http://localhost:3000/';
 const scope = 'playlist-modify-public';
@@ -54,31 +52,32 @@ const Spotify = {
 
     savePlaylist(name, trackUris) {
         if (!name || !trackUris.length) {
-            return;
+            return false;
         }
 
         const accessToken = Spotify.getAccessToken();
         const headers = { Authorization: `Bearer ${accessToken}`};
         let userId;
 
-        return fetch('https://api.spotify.com/v1/me', {headers: headers})
+        fetch('https://api.spotify.com/v1/me', {headers: headers})
         .then((response) => response.json())
         .then((jsonResponse) => {
             userId = jsonResponse.id;
-            return fetch(`${userEndpoint}${userId}/playlists`, {
+            return fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
                 headers: headers,
                 method: 'POST',
                 body: JSON.stringify({name: name})
             }).then((response) => response.json())
             .then((jsonResponse) => {
                 const playlistId = jsonResponse.id;
-                return fetch(`${userEndpoint}${userId}/playlists/${playlistId}/tracks`, {
+                return fetch(`https://api.spotify.com/v1/users/${userId}/playlists/${playlistId}/tracks`, {
                     headers: headers,
                     method: 'POST',
                     body: JSON.stringify({uris: trackUris})
                 });
             });
         });
+        return true;
     }
 };
 

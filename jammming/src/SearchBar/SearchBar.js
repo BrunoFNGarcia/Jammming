@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import './SearchBar.css';
 import Spotify from '../Spotify/Spotify';
+import { FaSearch } from 'react-icons/fa';
 
 function SearchBar(props) {
-    const [text, setText] = useState('');
-
     // const fetchData = value => {
     //     fetch("https://jsonplaceholder.typicode.com/users")
     //     .then(response => response.json())
@@ -21,19 +20,18 @@ function SearchBar(props) {
     //     });
     // };
 
-    const search = (value) => {
-        Spotify.search(value).then(props.setSearchResults);
-    }
-
-    const handleTextChange = e => {
-        setText(e.target.value);
-        search(e.target.value);
-    };
-
     return (
         <div className='SearchComponent'>
-            <h2 className='SearchText'>Search</h2>
-            <input className='SearchBar' onChange={handleTextChange} value={text} type='text' placeholder='What do you want to listen to?'></input>
+            <div className='SearchBar'>
+                <FaSearch id='SearchBarIcon'/>
+                <input 
+                    className='SearchBarInput' 
+                    onChange={props.onChange} 
+                    value={props.value} 
+                    type='text' 
+                    placeholder='What do you want to listen to?'>
+                </input>
+            </div>
         </div>
     )
 }

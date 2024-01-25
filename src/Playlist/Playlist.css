@@ -1,0 +1,41 @@
+.Playlist {
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+    height: 35rem;
+    overflow-y: auto;
+    text-align: left;
+    padding: 0 1rem;
+    border: 0.4px solid #fff;
+    overscroll-behavior: contain;
+    text-align: center;
+}
+
+.PlaylistInput {
+    text-align: center;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 0.4px solid #fff;
+    color: #fff;
+    margin: 0.75rem 0 2rem 0;
+}
+
+.PlaylistButton {
+    width: 10rem;
+    align-self: center;
+    margin: 1.5rem 0;
+}
+
+.Tracklist {
+    text-align: left;
+}
+
+.PlaylistInput:focus {
+    outline: none;
+ }
+
+ ::placeholder {
+    color: #fff;
+    opacity: 0.75;
+ }

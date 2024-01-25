@@ -1,0 +1,15 @@
+.SearchResults {
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+    height: 35rem;
+    overflow-y: auto;
+    text-align: left;
+    padding: 0 1rem;
+    border: 0.4px solid #fff;
+    overscroll-behavior: contain;
+}
+
+.SearchResultsTitle {
+    text-align: center;
+}

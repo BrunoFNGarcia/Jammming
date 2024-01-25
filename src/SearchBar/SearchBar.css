@@ -1,0 +1,33 @@
+.SearchComponent {
+    margin-bottom: 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+ 
+ .SearchBar {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    border-radius: 500px;
+    height: 48px;
+    width: 30%;
+    background-color: #242424;
+    color: #fff;
+    padding: 6px 16px;
+    border-color: #fff;
+ }
+ 
+ .SearchBarInput {
+    width: 100%;
+    height: 100%;
+    background-color: #242424;
+    color: #fff;
+    border: none;
+    padding-left: 5px;
+ }
+ 
+ .SearchBarInput:focus {
+    outline: none;
+ }
+ 

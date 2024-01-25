@@ -1,7 +1,7 @@
 const accessTokenEndpoint = 'https://accounts.spotify.com/authorize';
 const searchEndpoint = 'https://api.spotify.com/v1/search?type=track&q=';
 const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
-const redirectUri = 'bruno-jammming-project.netlify.app';
+const redirectUri = 'https://bruno-jammming-project.netlify.app/';
 const scope = 'playlist-modify-public';
 let accessToken;
 

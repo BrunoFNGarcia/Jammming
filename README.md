@@ -1,6 +1,6 @@
 # Description
 
-This project was bootstrapped with [Create React App] and completed as part of the Codecademy Front-End Engineer Career Path. Everything was done from scratch, with my own knowledge and help from Codecademy Community, friends and researchs.
+This project was bootstrapped with Create React App and completed as part of the Codecademy Front-End Engineer Career Path. Everything was done from scratch, with my own knowledge and help from Codecademy Community, friends and researchs.
 
 ## How to Use
 

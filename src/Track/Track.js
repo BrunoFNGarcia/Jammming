@@ -26,8 +26,8 @@ function Track(props) {
     return (
         <div className='Track'>
             <div className='TrackInfo'>
-                <h3>{props.track.name}</h3>
-                <p>{props.track.artist} | {props.track.album}</p>
+                <h3 className='TrackInfoTitle'>{props.track.name}</h3>
+                <p className='TrackInfoArtistAlbum'>{props.track.artist} | {props.track.album}</p>
             </div>
             {renderAction()}
         </div>

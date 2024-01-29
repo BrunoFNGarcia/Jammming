@@ -10,7 +10,7 @@
     align-items: center;
     box-sizing: border-box;
     border-radius: 500px;
-    height: 48px;
+    height: 3rem;
     width: 30%;
     background-color: #242424;
     color: #fff;
@@ -31,3 +31,8 @@
     outline: none;
  }
  
+ @media only screen and (max-width: 720px) {
+   .SearchBar {
+     min-width: 40%;
+   }
+ }

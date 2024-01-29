@@ -21,3 +21,15 @@
 h3 {
     margin-bottom: -0.5rem;
 }
+
+@media only screen and (max-width: 720px) {
+    .TrackInfo {
+        padding-right: 20px;
+    }
+    .TrackInfoTitle {
+        font-size: 1.05rem;
+    }
+    .TrackInfoArtistAlbum {
+        font-size: 0.725rem;
+    }
+}

@@ -16,8 +16,18 @@
 
 @media only screen and (max-width: 720px) {
     .SearchResults {
-      width: 25rem;
-      margin: 0 0.25rem;
-      max-height: 25rem;
+        width: 25rem;
+        margin: 0 0.25rem;
+        max-height: 25rem;
+    }
+    .SearchResultsTitle {
+        font-size: 1.25rem;
+    }
+}
+
+@media only screen and (min-width: 721px) and (max-width: 1439px) {
+    .SearchResults {
+       margin: 0 0.25rem 0 0.5rem;
+       max-height: 30rem;
     }
 }

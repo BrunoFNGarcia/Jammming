@@ -43,8 +43,21 @@
 
 @media only screen and (max-width: 720px) {
     .Playlist {
-      width: 25rem;
-      margin: 0 0.25rem;
-      max-height: 25rem;
+        width: 25rem;
+        margin: 0 0.25rem;
+        max-height: 25rem;
+    }
+    .PlaylistTitle {
+        font-size: 1.25rem;
+    }
+    .PlaylistButton {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 721px) and (max-width: 1439px) {
+    .Playlist {
+       margin: 0 0.5rem 0 0.25rem;
+       max-height: 30rem;
     }
 }

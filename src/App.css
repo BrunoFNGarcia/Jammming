@@ -17,3 +17,9 @@ strong {
   flex-direction: row;
   justify-content: space-around;
 }
+
+@media only screen and (max-width: 720px) {
+  .AppTitle {
+    font-size: 2.5rem;
+  }
+}
